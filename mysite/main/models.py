@@ -22,7 +22,6 @@ class Album(models.Model):
 
 class Pjesma(models.Model):
     naziv_pjesme=models.CharField(max_length=50)
-    izvodac=models.ForeignKey(Izvodac, on_delete=models.CASCADE)
     album=models.ForeignKey(Album, on_delete=models.CASCADE)
     godina_izdavanja_pjesme=models.CharField(max_length=4, default='2021')
     trajanje_pjesme=models.CharField(max_length=50)
