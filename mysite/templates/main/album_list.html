@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<br>
+{% for album in object_list %}
+    {% if forloop.first %}
+        <div class="album">
+            <h2> {{album.izvodac.izvodac_ime}} {{album.izvodac.izvodac_prezime}} </h2>
+            <p>Datum rođenja: {{ album.izvodac.datum_rođenja }}</p>
+            <p>{{ album.izvodac.dodatne_informacije_izvodaca }}</p>
+        </div>
+    {% endif %}
+{% endfor %}
+<br>
+<h3>Albumi:</h3>
+{% for album in object_list %}
+    <div class="album">
+        <h4><a href="/izvodaci/{{ album.izvodac }}/{{ album.naziv_albuma }}">{{ album.naziv_albuma }}</a></h4>
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<br>
+<h2> Izvođači </h2>
+<br>
+{% for izvodac in object_list %}
+    <div class="album">
+        <h4><a href="/izvodaci/{{ izvodac.izvodac_prezime }}">{{ izvodac.izvodac_ime }} {{ izvodac.izvodac_prezime }}</a></h4>
+    </div>
+{% endfor %}
+{% endblock %}

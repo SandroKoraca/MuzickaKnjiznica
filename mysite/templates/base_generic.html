@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>{% block title %}Muzička knjižnica{% endblock %}</title>
+</head>
+
+<body>
+    <div class="test">
+        {% load static %}
+        <a href="/"><img class="traka" src="{% static 'images/traka.png' %}" alt="My image"></a>
+    </div>
+    <div id="sidebar" class="lista_block">
+        {% block sidebar %}
+        <a class="lista_elementi" href="/">Home</a>
+        <a class="lista_elementi" href="/izvodaci">Izvođači</a>
+        <a class="lista_elementi" href="/admin">Admin</a>
+        {% endblock %}
+    </div>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

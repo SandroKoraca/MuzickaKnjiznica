@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<br>
+{% for pjesma in object_list %}
+    {% if forloop.first %}
+        <div class="pjesma">
+            <h2> <a href="/izvodaci/{{ pjesma.album.izvodac }}">{{pjesma.album.izvodac.izvodac_ime}} {{pjesma.album.izvodac.izvodac_prezime}}</a> - {{ pjesma.album.naziv_albuma }} </h2>
+            <p>Godina izdavanja albuma: {{ pjesma.album.godina_izdavanja_albuma }}</p>
+            <p>{{ pjesma.album.dodatne_informacije_albuma }}</p>
+        </div>
+    {% endif %}
+{% endfor %}
+<br>
+<h3>Pjesme albuma:</h3>
+{% for pjesma in object_list %}
+    <div class="pjesma">
+        <h4>{{ pjesma.naziv_pjesme }}</h4>
+        <p>Godina izdavanja pjesme: {{ pjesma.godina_izdavanja_pjesme }}</p>
+        <p>Trajanje pjesme: {{ pjesma.trajanje_pjesme }}</p>
+        <br>
+    </div>
+{% endfor %}
+{% endblock %}
