@@ -15,11 +15,19 @@
     <div id="sidebar" class="lista_block">
         {% block sidebar %}
         <a class="lista_elementi" href="/">Home</a>
-        <a class="lista_elementi" href="/izvodaci">Izvođači</a>
+        <a class="lista_elementi" href="/accounts/login">Izvođači</a>
         <a class="lista_elementi" href="/admin">Admin</a>
+        <div class="desno">
+            {% if request.user.is_authenticated %}
+                Pozdrav {{ request.user.username }},
+                <a href="/accounts/logout">Odjava?</a>
+            {% else %}
+                Pozdrav goste!
+                <a href="/accounts/login">Prijava?</a>
+            {% endif %}
+        </div>
         {% endblock %}
     </div>
-
     <div class="content">
         {% block content %}
         {% endblock %}
