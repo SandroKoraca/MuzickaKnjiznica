@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 # Create your models here.
 
@@ -14,7 +15,7 @@ class Izvodac(models.Model):
 class Album(models.Model):
     naziv_albuma=models.CharField(max_length=50)
     izvodac=models.ForeignKey(Izvodac, on_delete=models.CASCADE)
-    godina_izdavanja_albuma=models.CharField(max_length=4, default='2021')
+    godina_izdavanja_albuma=models.CharField(max_length=4)
     dodatne_informacije_albuma=models.CharField(max_length=100, blank=True)
 
     def __str__(self):
@@ -23,7 +24,7 @@ class Album(models.Model):
 class Pjesma(models.Model):
     naziv_pjesme=models.CharField(max_length=50)
     album=models.ForeignKey(Album, on_delete=models.CASCADE)
-    godina_izdavanja_pjesme=models.CharField(max_length=4, default='2021')
+    godina_izdavanja_pjesme=models.CharField(max_length=4)
     trajanje_pjesme=models.CharField(max_length=50)
 
     def __str__(self):

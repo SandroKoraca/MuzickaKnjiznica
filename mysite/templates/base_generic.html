@@ -16,7 +16,9 @@
         {% block sidebar %}
         <a class="lista_elementi" href="/">Home</a>
         <a class="lista_elementi" href="/accounts/login">Izvođači</a>
-        <a class="lista_elementi" href="/admin">Admin</a>
+        {% if request.user.is_superuser %}
+            <a class="lista_elementi" href="/adminpanel">Admin</a>
+        {% endif %}
         <div class="desno">
             {% if request.user.is_authenticated %}
                 Pozdrav {{ request.user.username }},

@@ -1,0 +1,13 @@
+{% extends "admin_panel.html" %}
+{% block content_admin %}
+<br>
+<h2>Dodavanje albuma</h2>
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>Naziv albuma: <input type="text" name="naziv_albuma"></p>
+    <p>Prezime izvođača: <input type="text" name="izvodac"></p>
+    <p>Godina izdavanja albuma: <input type="text" name="godina_izdavanja_albuma"></p>
+    <p>Dodatne informacije: <input type="text" name="dodatne_informacije_albuma"></p>
+    <p><input type="submit" name="Submit" value="Submit"></p>
+</form>
+{% endblock %}
