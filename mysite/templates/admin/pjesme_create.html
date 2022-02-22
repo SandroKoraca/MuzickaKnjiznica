@@ -1,5 +1,11 @@
-{% extends "admin_panel.html" %}
-{% block content_admin %}
+{% extends "base_generic.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
 <br>
-<h2>Dodavanje izvodaca</h2>
+<h2>Dodavanje pjesme</h2>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <p><input type="submit" name="Potvrdi" value="Potvrdi"></p>
+</form>
 {% endblock %}

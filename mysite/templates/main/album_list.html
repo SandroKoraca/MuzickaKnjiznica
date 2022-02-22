@@ -8,13 +8,28 @@
             <p>Datum rođenja: {{ album.izvodac.datum_rođenja }}</p>
             <p>{{ album.izvodac.dodatne_informacije_izvodaca }}</p>
         </div>
+        <br>
     {% endif %}
 {% endfor %}
-<br>
 <h3>Albumi:</h3>
 {% for album in object_list %}
+    {% if forloop.first %}
+        {% if request.user.is_superuser %}
+        <button><a href="/izvodaci/{{ album.izvodac_id }}/DodavanjeAlbuma">Dodaj album</a></button>
+        {% endif %}
+    {% endif %}
+{% empty %}
+    {% if request.user.is_superuser %}
+        <button><a href="/adminpanel/DodavanjeAlbuma">Dodaj album</a></button>
+    {% endif %}
+{% endfor %}
+{% for album in object_list %}
     <div class="album">
-        <h4><a href="/izvodaci/{{ album.izvodac }}/{{ album.naziv_albuma }}">{{ album.naziv_albuma }}</a></h4>
+        <h4 class="gumbi"><a href="/izvodaci/{{ album.izvodac }}/{{ album.naziv_albuma }}">{{ album.naziv_albuma }}</a> </h4>
+        {% if request.user.is_superuser %}
+            <button class="gumbi"><a href="/izvodaci/{{ album.izvodac }}/{{ album.naziv_albuma }}/UredivanjeAlbuma">Uredi album</a></button>
+            <button class="gumbi"><a href="/izvodaci/{{ album.izvodac }}/{{ album.naziv_albuma }}/BrisanjeAlbuma">Obriši album</a></button>
+        {% endif %}
     </div>
 {% endfor %}
 {% endblock %}

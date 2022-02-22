@@ -1,0 +1,13 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<br>
+<h2>Brisanje izvođača</h2>
+<p>Želite li sigurno obrisati "{{ izvodac }}"?</p>
+<br>
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" name="Potvrdi" value="Potvrdi">
+    <button><a href="/izvodaci">Odustani</a></button>
+</form>
+{% endblock %}

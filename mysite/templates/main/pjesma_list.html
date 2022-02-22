@@ -12,9 +12,24 @@
 {% endfor %}
 <br>
 <h3>Pjesme albuma:</h3>
+{% for pjesme in object_list %}
+    {% if forloop.first %}
+        {% if request.user.is_superuser %}
+        <button><a href="/izvodaci/{{ pjesme.album }}/DodavanjePjesme">Dodaj pjesmu</a></button>
+        {% endif %}
+    {% endif %}
+{% empty %}
+    {% if request.user.is_superuser %}
+        <button><a href="/adminpanel/DodavanjePjesme">Dodaj pjesmu</a></button>
+    {% endif %}
+{% endfor %}
 {% for pjesma in object_list %}
     <div class="pjesma">
-        <h4>{{ pjesma.naziv_pjesme }}</h4>
+        <h4 class="gumbi">{{ pjesma.naziv_pjesme }}</h4>
+        {% if request.user.is_superuser %}
+            <button class="gumbi"><a href="/izvodaci/{{ pjesma.album.izvodac }}/{{ pjesma.album }}/{{ pjesma.naziv_pjesme }}/UredivanjePjesme">Uredi pjesmu</a></button>
+            <button class="gumbi"><a href="/izvodaci/{{ pjesma.album.izvodac }}/{{ pjesma.album }}/{{ pjesma.naziv_pjesme }}/BrisanjePjesme">Obriši pjesmu</a></button>
+        {% endif %}
         <p>Godina izdavanja pjesme: {{ pjesma.godina_izdavanja_pjesme }}</p>
         <p>Trajanje pjesme: {{ pjesma.trajanje_pjesme }}</p>
         <br>

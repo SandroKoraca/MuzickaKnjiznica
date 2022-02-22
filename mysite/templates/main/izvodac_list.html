@@ -2,10 +2,16 @@
 {% block content %}
 <br>
 <h2> Izvođači </h2>
-<br>
+{% if request.user.is_superuser %}
+    <button><a href="/izvodaci/DodavanjeIzvodaca">Dodaj izvođača</a></button>
+{% endif %}
 {% for izvodac in object_list %}
     <div class="album">
-        <h4><a href="/izvodaci/{{ izvodac.izvodac_prezime }}">{{ izvodac.izvodac_ime }} {{ izvodac.izvodac_prezime }}</a></h4>
+        <h4 class="gumbi"><a href="/izvodaci/{{ izvodac.izvodac_prezime }}">{{ izvodac.izvodac_ime }} {{ izvodac.izvodac_prezime }}</a></h4>
+        {% if request.user.is_superuser %}
+            <button class="gumbi"><a href="/izvodaci/{{ izvodac.izvodac_prezime }}/UredivanjeIzvodaca">Uredi izvođača</a></button>
+            <button class="gumbi"><a href="/izvodaci/{{ izvodac.izvodac_prezime }}/BrisanjeIzvodaca">Obriši izvođača</a></button>
+        {% endif %}
     </div>
 {% endfor %}
 {% endblock %}

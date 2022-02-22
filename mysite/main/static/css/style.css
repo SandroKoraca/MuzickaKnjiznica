@@ -29,5 +29,8 @@ a{
 .desno{
     display: block;
     text-align: right;
-    
+}
+
+.gumbi{
+    display: inline-block;
 }

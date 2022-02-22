@@ -21,10 +21,10 @@
         {% endif %}
         <div class="desno">
             {% if request.user.is_authenticated %}
-                Pozdrav {{ request.user.username }},
+                Pozdrav <strong>{{ request.user.username }}</strong>,
                 <a href="/accounts/logout">Odjava?</a>
             {% else %}
-                Pozdrav goste!
+                Pozdrav <strong>goste</strong>!
                 <a href="/accounts/login">Prijava?</a>
             {% endif %}
         </div>

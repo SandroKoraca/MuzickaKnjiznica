@@ -1,13 +1,11 @@
-{% extends "admin_panel.html" %}
-{% block content_admin %}
+{% extends "base_generic.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
 <br>
-<h2>Dodavanje izvodaca</h2>
+<h2>Dodavanje izvođača</h2>
 <form action="" method="POST">
     {% csrf_token %}
-    <p>Ime izvođača: <input type="text" name="izvodac_ime"></p>
-    <p>Prezime izvođača: <input type="ForeignKey" name="izvodac_prezime"></p>
-    <p>Datum rođenja: <input type="date" name="datum_rođenja"></p>
-    <p>Dodatne informacije: <input type="text" name="dodatne_informacije_izvodaca"></p>
-    <p><input type="submit" name="Submit" value="Submit"></p>
+    {{ form|crispy }}
+    <p><input type="submit" name="Potvrdi" value="Potvrdi"></p>
 </form>
 {% endblock %}

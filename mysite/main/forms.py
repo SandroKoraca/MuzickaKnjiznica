@@ -12,7 +12,7 @@ class IzvodacForm(ModelForm):
 class AlbumForm(ModelForm):
     class Meta:
         model = Album
-        fields = '__all__'
+        fields = ('naziv_albuma', 'godina_izdavanja_albuma', 'dodatne_informacije_albuma', 'izvodac')       
 
 class PjesmaForm(ModelForm):
     class Meta:
