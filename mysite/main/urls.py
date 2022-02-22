@@ -25,6 +25,7 @@ urlpatterns = [
 
     path('adminpanel/', views.admin_panel, name='homepage'),
     path('adminpanel/DodavanjeAlbuma', views.dodavanje_albuma_novi, name='homepage'),
+    path('adminpanel/DodavanjePjesme', views.dodavanje_pjesme_nova, name='homepage'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

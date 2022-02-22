@@ -17,4 +17,4 @@ class AlbumForm(ModelForm):
 class PjesmaForm(ModelForm):
     class Meta:
         model = Pjesma
-        fields = '__all__'
+        fields = ('naziv_pjesme', 'godina_izdavanja_pjesme', 'trajanje_pjesme', 'album')

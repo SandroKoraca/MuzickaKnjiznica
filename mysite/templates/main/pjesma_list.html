@@ -15,7 +15,7 @@
 {% for pjesme in object_list %}
     {% if forloop.first %}
         {% if request.user.is_superuser %}
-        <button><a href="/izvodaci/{{ pjesme.album }}/DodavanjePjesme">Dodaj pjesmu</a></button>
+        <button><a href="/izvodaci/{{ pjesme.album.izvodac }}/{{ pjesme.album_id }}/DodavanjePjesme">Dodaj pjesmu</a></button>
         {% endif %}
     {% endif %}
 {% empty %}
