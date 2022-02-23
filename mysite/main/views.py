@@ -59,7 +59,7 @@ def dodavanje_albuma(request, izvodaci):
         form = AlbumForm(request.POST, initial = initial_dict)
         if form.is_valid():
             form.save()
-            return redirect("/izvodaci")
+            return redirect("/izvodaci/"+izvodaci)
 
     context = {"form": form}
     return render(request, 'admin/albumi_create.html', context=context)
@@ -82,7 +82,7 @@ def uredivanje_albuma(request, izvodaci, album):
         form = AlbumForm(request.POST, instance=odabrani_album)
         if form.is_valid():
             form.save()
-            return redirect("/izvodaci")
+            return redirect("/izvodaci/"+izvodaci)
 
     context = {"form": form}
     return render(request, 'admin/albumi_create.html', context=context)
@@ -92,7 +92,7 @@ def brisanje_albuma(request, izvodaci, album):
 
     if request.method == "POST":
         odabrani_album.delete()
-        return redirect("/izvodaci")
+        return redirect("/izvodaci/"+izvodaci)
 
     context = {"album": odabrani_album}
     return render(request, "admin/albumi_delete.html", context)
@@ -106,7 +106,7 @@ def dodavanje_pjesme(request, izvodaci, album):
         form = PjesmaForm(request.POST, initial = initial_dict)
         if form.is_valid():
             form.save()
-            return redirect("/izvodaci")
+            return redirect("/izvodaci/"+izvodaci+"/"+album)
 
     context = {"form": form}
     return render(request, 'admin/pjesme_create.html', context=context)
@@ -129,7 +129,7 @@ def uredivanje_pjesme(request, izvodaci, album, pjesma):
         form = PjesmaForm(request.POST, instance=odabrana_pjesma)
         if form.is_valid():
             form.save()
-            return redirect("/izvodaci")
+            return redirect("/izvodaci/"+izvodaci+"/"+album)
 
     context = {"form": form}
     return render(request, 'admin/pjesme_create.html', context=context)
@@ -139,7 +139,7 @@ def brisanje_pjesme(request, izvodaci, album, pjesma):
 
     if request.method == "POST":
         odabrana_pjesma.delete()
-        return redirect("/izvodaci")
+        return redirect("/izvodaci/"+izvodaci+"/"+album)
 
     context = {"pjesma": odabrana_pjesma}
     return render(request, "admin/pjesme_delete.html", context)

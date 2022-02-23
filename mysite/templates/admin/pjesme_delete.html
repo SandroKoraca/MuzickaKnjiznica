@@ -3,11 +3,11 @@
 {% load crispy_forms_tags %}
 <br>
 <h2>Brisanje pjesme</h2>
-<p>Želite li sigurno obrisati "{{ pjesma }}"?</p>
+<p>Jeste li sigurni da želite obrisati "{{ pjesma }}"?</p>
 <br>
 <form action="" method="POST">
     {% csrf_token %}
     <input type="submit" name="Potvrdi" value="Potvrdi">
-    <button><a href="/izvodaci">Odustani</a></button>
+    <button><a href="/izvodaci/{{pjesma.album.izvodac}}/{{pjesma.album}}">Odustani</a></button>
 </form>
 {% endblock %}

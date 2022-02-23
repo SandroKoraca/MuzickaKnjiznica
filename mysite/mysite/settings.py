@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'django.contrib.sites',
     "crispy_forms",
-    'tailwind',
-    'theme',
 
     'allauth',
     'allauth.account',
@@ -153,9 +151,3 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 DATE_INPUT_FORMATS = ['%d-%m-%Y']
-
-TAILWIND_APP_NAME = 'theme'
-
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
